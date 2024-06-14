@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My World My Emotions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</head>
+<body>
+    <div class="hero-image">
+        <div class="hero-text">
+            <span class="black-text">DETAC</span><span class="white-text">HMENT</span>
+        </div>
+    </div>
+    <h1>Names Grid that I allow to have influence OVER ME & STILL PRACTICE DETACHMENT</h1>
+    <p class="guiding-text">
+        Aim of this exercise is AFTER ALL EVERYTHING IS ATTACHED TO THE NAME WHICH I WAS PROGRAMMED TO IDENTIFY WITH ALL THROUGH MY LIFE. PEOPLE HAVE LABELLING HABIT even governments too. AND THEY LABEL EVERYTHING. & I AM DROPPING ALL THE LABELS BY PRACTICING AND NOTICING THE LABELS I GIVE THEM.
+    </p>
+
+    <!-- Login and Signup Forms -->
+    <div id="authForms">
+        <div id="loginForm" class="auth-form">
+            <h2>Login</h2>
+            <form id="login">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email" required autocomplete="email">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+        </div>
+        <div id="signupForm" class="auth-form" style="display:none;">
+            <h2>Sign Up</h2>
+            <form id="signup">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="email" required autocomplete="username">
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="password" required autocomplete="new-password">
+                <label for="signupPasswordConfirm">Confirm Password:</label>
+                <input type="password" id="signupPasswordConfirm" name="passwordConfirm" required autocomplete="new-password">
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            <div id="buttonDiv"></div> <!-- Google Sign-In Button -->
+        </div>
+    </div>
+
+    <div class="header-container" id="appContent" style="display:none;">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search names..." onkeyup="filterNames()">
+            <button id="clearSearch" onclick="clearSearch()">Clear</button>
+        </div>
+        <button class="add-button" onclick="openAddModal()">+</button>
+    </div>
+    <div class="grid-container" id="namesGrid" style="display:none;"></div>
+
+    <!-- Sync Status -->
+    <div id="syncStatus" class="sync-status">Syncing...</div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Are you sure you want to delete this name?</h2>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmCancel" onclick="closeModal('confirmationModal')">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Add Person Modal -->
+    <div id="addPersonModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addPersonModal')">&times;</span>
+            <h2>Enter Your Details</h2>
+            <form id="addPersonForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
